@@ -448,7 +448,9 @@ class EthereumNode extends EventEmitter {
                   '--syncmode',
                   syncMode,
                   '--cache',
-                  process.arch === 'x64' ? '1024' : '512'
+                  process.arch === 'x64' ? '1024' : '512',
+                  '--rpc',
+                  'http://localhost:8899'
                 ]
               : ['--unsafe-transactions'];
       }
