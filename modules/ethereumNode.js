@@ -344,14 +344,13 @@ class EthereumNode extends EventEmitter {
 
     const client = ClientBinaryManager.getClient(nodeType);
     let binPath;
-
     if (client) {
       binPath = client.binPath;
     } else {
-      throw new Error(`Node "${nodeType}" binPath is not available.`);
+      throw new Error(`Node "${nodeType}" "${binPath}" is not available.`);
     }
 
-    ethereumNodeLog.info(`Start node using ${binPath}`);
+    ethereumNodeLog.info(`Start node using "${binPath}" `);
 
     return new Q((resolve, reject) => {
       this.__startProcess(nodeType, network, binPath, syncMode).then(
@@ -448,9 +447,7 @@ class EthereumNode extends EventEmitter {
                   '--syncmode',
                   syncMode,
                   '--cache',
-                  process.arch === 'x64' ? '1024' : '512',
-                  '--rpc',
-                  'http://localhost:8899'
+                  process.arch === 'x64' ? '1024' : '512'
                 ]
               : ['--unsafe-transactions'];
       }

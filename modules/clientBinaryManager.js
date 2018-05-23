@@ -102,15 +102,15 @@ class Manager extends EventEmitter {
           }
         }
 
-        try {
-          skipedVersion = fs
-            .readFileSync(
-              path.join(Settings.userDataPath, 'skippedNodeVersion.json')
-            )
-            .toString();
-        } catch (err) {
-          log.info('No "skippedNodeVersion.json" found.');
-        }
+        // try {
+        //   skipedVersion = fs
+        //     .readFileSync(
+        //       path.join(Settings.userDataPath, 'skippedNodeVersion.json')
+        //     )
+        //     .toString();
+        // } catch (err) {
+        //   log.info('No "skippedNodeVersion.json" found.');
+        // }
 
         // prepare node info
         const platform = process.platform

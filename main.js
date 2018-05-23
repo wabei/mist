@@ -381,10 +381,10 @@ function startMainWindow() {
 
 function initializeMainWindowListeners() {
   mainWindow.on('ready', () => {
+    mainWindow.show();
     if (splashWindow) {
       splashWindow.close();
     }
-    mainWindow.show();
   });
 
   mainWindow.load(global.interfaceAppUrl);
