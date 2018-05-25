@@ -373,13 +373,13 @@ class Windows {
       mist: {
         nodeIntegration: true /* necessary for webviews;
                     require will be removed through preloader */,
-        preload: './preloader/mistUI.js',
+        preload: `${__dirname}/preloader/mistUI.js`,
         'overlay-fullscreen-video': true,
         'overlay-scrollbars': true,
         experimentalFeatures: true
       },
       wallet: {
-        preload: './preloader/walletMain.js',
+        preload: `${__dirname}/preloader/walletMain.js`,
         'overlay-fullscreen-video': true,
         'overlay-scrollbars': true
       }
@@ -410,7 +410,7 @@ class Windows {
             useContentSize: true,
             frame: false,
             webPreferences: {
-              preload: './preloader/splashScreen.js'
+              preload: `${__dirname}/preloader/splashScreen.js`
             }
           }
         };
@@ -430,8 +430,7 @@ class Windows {
             titleBarStyle: '', // hidden-inset: more space
             skipTaskbar: true,
             webPreferences: {
-              // preload: './preloader/popupWindowsNoWeb3.j'`
-              preload: './preloader/popupWindowsNoWeb3.js'
+              preload: `${__dirname}/preloader/popupWindowsNoWeb3.js`
             }
           }
         };
@@ -524,7 +523,7 @@ class Windows {
           acceptFirstMouse: true,
           darkTheme: true,
           webPreferences: {
-            preload: './preloader/popupWindows.js',
+            preload: `${__dirname}/preloader/popupWindows.js`,
             nodeIntegration: false,
             webaudio: true,
             webgl: false,
@@ -575,9 +574,9 @@ class Windows {
     opts.isPopup = true;
 
     if (opts.useWeb3) {
-      opts.electronOptions.webPreferences.preload = './preloader/popupWindows.js';
+      opts.electronOptions.webPreferences.preload = `${__dirname}/preloader/popupWindows.js`;
     } else {
-      opts.electronOptions.webPreferences.preload = './preloader/popupWindowsNoWeb3.js';
+      opts.electronOptions.webPreferences.preload = `${__dirname}/preloader/popupWindowsNoWeb3.js`;
     }
 
     // If generic window is available, recycle it (unless on blacklist)
