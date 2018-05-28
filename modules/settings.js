@@ -167,7 +167,7 @@ class Settings {
       process.platform === 'linux' ||
       process.platform === 'sunos'
     ) {
-      ipcPath += '/.Wabei/geth.ipc';
+      ipcPath += '/.wabei/geth.ipc';
     } else if (process.platform === 'win32') {
       ipcPath = '\\\\.\\pipe\\geth.ipc';
     }
